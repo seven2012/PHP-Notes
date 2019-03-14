@@ -207,3 +207,13 @@ $task = [
 通常有function的时候，我们需要另建一个命名为functions.php的文件，然后把所有的function()都放在这个文件里;
 在函数被执行前，需要先请求functions.php,所以require "functions.php"需要放在index.php执行函数的前面；
 ```
+- ### Mysql 数据库必知必会:
+ - 首先安装mysql,https://dev.mysql.com/downloads/file/?id=484914;
+ - 安装完成后,在终端登录mysql,命令：mysql -u root -p;
+ - 进入后，如果需要清屏，按command + k;
+ - show databases;展示本机所有的数据库；
+ - create database ...我创建数据库mytodo;(命令行末尾都要加分号)
+ - use ...mytodo;（进入我创建 的这个数据库）
+ - show tables;(展示这个表的内容，暂时为空)
+
+ - create table ...我新创建的表的名字todos （对表的描述，如create table todos (id integer PRIMARY KEY AUTO_INCREMENT, description text NOT NULL, completed boolean NOT NULL);）(在这个数据库里 创建一个表,表的描述放在括号里，关键是对类的定义，这里分三个类，id,description,completed);
