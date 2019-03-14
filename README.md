@@ -113,8 +113,97 @@ index.view.php代码：
     </ul>
 
 ```
-
+- ### 布尔值：
 ```
-- 布尔值：
+index.php:
+例：
+$task = [
+        'title' => "shopping",
+        'completed1' => 'yes',
+        'completed2' => false, //能够使用布尔值，就使用布尔值判断
+        'user' => "Dan"
 
+    ]
+index.view.php:
+例：
+    <ul>
+        <li><strong>Title:</strong> <?= $task['title']?></li>
+        <li>
+            <strong>completed:</strong>
+            <?= $task['completed2'] ? 'Completed' : 'Uncompleted' ?> //类似为if...else...语句
+            <strong>completed:</strong>
+            <?= $task['completed1'] == 'yes' ? 'Completed' : 'Uncompleted' ?> 
+        </li>
+        <li><strong>User:</strong> <?= $task['user']?></li>
+    </ul>
+```
+- ### if语句：
+ ```
+ 第一种写法：
+      <li>
+            <strong>Status:</strong>
+            <?php 
+                if ($task['completed']) {
+                    echo('Completed');
+                } else {
+                    echo('Uncompleted');
+                };
+                
+            ?>
+        </li>
+ 第二种写法：
+        <li>
+            <strong>Status:</strong>
+            <?php if ($task['completed']) :?>
+                <span>&#9989</span>
+            <?php else : ?>
+                <span>Incomplete</span>
+            <?php endif;?>
+        </li>
+ 第三种：取反，结果也相反
+        <li>
+            <strong>Status:</strong>
+            <?php if (! $task['completed']) :?>
+                <span>&#9989</span>
+            <?php else : ?>
+                <span>Incomplete</span>
+            <?php endif;?>
+        </li>
+ ```
+- ### PHP函数:
+```
+ 第一种方式：
+            function dumper($one,$two,$three){
+                    var_dump($one,$two,$three);
+            }
+
+            dumper('Good','morning','July');
+            结果：string(4) "Good" string(7) "morning" string(4) "July"
+            
+第二种方式：
+$task = [
+        'title' => "shopping",
+        'completed' => false,
+        'user' => "Dan"
+       ];
+    function dd($data){
+        echo("<pre>");
+        die(var_dump($data));
+        echo("</pre>");
+    }
+    dd($task);
+    结果显示：
+            array(3) {
+              ["title"]=>
+              string(8) "shopping"
+              ["completed"]=>
+              bool(false)
+              ["user"]=>
+              string(3) "Dan"
+            }
+ 注：函数做到两点重要原则，好的命名规范：
+     1、函数命名；
+     2、参数命名；
+通常有function的时候，我们需要另建一个命名为functions.php的文件，然后把所有的function()都放在这个文件里;
+在函数被执行前，需要先请求functions.php,所以require "functions.php"需要放在index.php执行函数的前面；
 ```
