@@ -213,7 +213,16 @@ $task = [
  - 进入后，如果需要清屏，按command + k;
  - show databases;展示本机所有的数据库；
  - create database ...我创建数据库mytodo;(命令行末尾都要加分号)
- - use ...mytodo;（进入我创建 的这个数据库）
+ - use mytodo;（进入我创建 的这个数据库）
  - show tables;(展示这个表的内容，暂时为空)
 
  - create table ...我新创建的表的名字todos （对表的描述，如create table todos (id integer PRIMARY KEY AUTO_INCREMENT, description text NOT NULL, completed boolean NOT NULL);）(在这个数据库里 创建一个表,表的描述放在括号里，关键是对类的定义，这里分三个类，id,description,completed);
+      如：create table todos (id integer PRIMARY KEY AUTO_INCREMENT, description text NOT NULL, completed boolean NOT NULL);
+ - describe todos;(显示表结构和内容)
+ - drop table todos;(删除这个表)
+ - nsert into todos (description, completed) values ('Go to shop', false);插入内容到表里；
+        例：insert into todos (description, completed) values ('Learn PHP', false);
+ - select * from todos;(展示表todos所有的内容)；
+ 
+ 在弄熟悉数据库命令行各含义后，可以借助数据库的图形化管理软件来进行数据库操作，如mac可以用 Sequel Pro, https://www.sequelpro.com/;windows可以借助 Navicat Premium https://www.navicat.com.cn/
+ 
