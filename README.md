@@ -213,6 +213,7 @@ $task = [
 在函数被执行前，需要先请求functions.php,所以require "functions.php"需要放在index.php执行函数的前面；
 ```
 - ### Mysql 数据库必知必会:
+```
  - 首先安装mysql,https://dev.mysql.com/downloads/file/?id=484914;
  - 安装完成后,在终端登录mysql,命令：mysql -u root -p;
  - 进入后，如果需要清屏，按command + k;
@@ -230,9 +231,14 @@ $task = [
  - select * from todos;(展示表todos所有的内容)；
  
  在弄熟悉数据库命令行各含义后，可以借助数据库的图形化管理软件来进行数据库操作，如mac可以用 Sequel Pro, https://www.sequelpro.com/;windows可以借助 Navicat Premium https://www.navicat.com.cn/
+ ```
  
  - ## php类的基础认识：
  ```
- 类的命名通常以名词居多，作为查找的关键字；
+  1、类的命名通常以名词居多，作为查找的关键字；
+  例：class Person{};或者 class Task{};
+     类似Person与Task都是名词；
+  2、类的属性或者说类的特征；
+     如id,description,completed等；
  
  ```
