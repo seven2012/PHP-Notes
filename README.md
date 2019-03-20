@@ -19,7 +19,7 @@
             
             ```
 - 补充： 这就要从双引号和单引号的作用讲起： 双引号里面的字段会经过编译器解释然后再当作HTML代码输出，但是单引号里面的不需要解释，直接输出。
-- ###在SQL语句中用单、双引号：
+- ### 在SQL语句中用单、双引号：
             eg:
               如果要将一个含有单引号的字符串插入数据库，这个SQL语句就会出错。 
               如：$sql="insert into userinfo (username,password) Values('O'Kefee','123456')" 　　 
@@ -46,10 +46,15 @@
               字符串之间用 . 来连接，这样能明白了吧。
  
 - ## php终端执行本地服务器：
-    php -S localhost:8888 打开http://localhost:8888 或者 http://localhost:8888/index.php
+    ```
+    
+    ### 在终端显示： php index.php(例)
+    ### 在浏览器端显示：
+    php -S localhost:8888 
+    打开http://localhost:8888 或者 http://localhost:8888/index.php
     默认执行显示index.php，除非有指定的执行文件;
     php代码与HTML代码分离时，如果新建可视代码文件名是index.view.php，则在index.php里引用可视文件，例：
-    ```
+    
     $name = $_GET['name'];
     $greeting = "Hello $name";
     require "index.view.php";  
@@ -226,3 +231,8 @@ $task = [
  
  在弄熟悉数据库命令行各含义后，可以借助数据库的图形化管理软件来进行数据库操作，如mac可以用 Sequel Pro, https://www.sequelpro.com/;windows可以借助 Navicat Premium https://www.navicat.com.cn/
  
+ - ## php类的基础认识：
+ ```
+ 类的命名通常以名词居多，作为查找的关键字；
+ 
+ ```
