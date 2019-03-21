@@ -240,5 +240,57 @@ $task = [
      类似Person与Task都是名词；
   2、类的属性或者说类的特征；
      如id,description,completed等；
+  3、访问类型（public, protected,private）:
+  
+                                                private	protected	public
+                                  同一个类中	√	√	√
+                                  类的子类中		√	√
+                                  所有的外部成员		           √
+
+  <?php 
+
+/*
+    Define MyClass1
+*/
+    class MyClass{
+        public $public = "Public1...";
+        protected $protected = "Protected1...";
+        private $private = "Private1...";
+
+        function printHello(){
+            echo $this->public." fun1<br>";
+            echo $this->protected." fun2<br>";
+            echo $this->private." fun3<br>";
+        }
+    }
+
+    $obj = new MyClass();
+    echo $obj->public." 1<br>";
+    //echo $obj->protected;
+    //echo $obj->private;
+    echo $obj->printHello()." 2<br>";
+
+/*
+    Define MyClass2
+*/
+    class MyClass2 extends MyClass{
+        //protected $protected = "protected2...";
+        //private $private = "private2...";
+
+        function printHello(){
+
+            echo $this->public." fun2.1<br>";
+            echo $this->protected." fun2.2<br>";
+            echo $this->private." fun2.3<br>";
+        }
+    }
+
+    $obj2 = new MyClass2();
+    echo $obj2->public." class2.1<br>";
+    //echo $obj2->private." class2.3<br>";
+    //echo $obj2->protected;
+    $obj2->printHello();
+    
+?>
  
  ```
