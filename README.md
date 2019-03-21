@@ -249,7 +249,7 @@ $task = [
  <?php 
 //属性访问控制，示例 MyClass1，MyClass2：
 /*
-    Define MyClass1
+   ### Define MyClass1
 */
     class MyClass1{
         public $public = "Public1...";
@@ -270,7 +270,7 @@ $task = [
     echo $obj->printHello()."<br>";  //打印printHello();
 
 /*
-    Define MyClass2
+    ### Define MyClass2
 */
     class MyClass2 extends MyClass1{
         protected $protected = "protected2...";
@@ -293,7 +293,7 @@ $task = [
 // 方法访问控制，示例 MyClass3，MyClass4：
     
     /*
-        Define MyClass3
+        ### Define MyClass3
     */
     class MyClass3{
         public function __construct(){echo "<br>construct...1<br>";}
@@ -315,7 +315,7 @@ $task = [
     $myclass3 -> Foo();   //调用Foo()函数；
 
     /*
-        Define MyClass4
+        ### Define MyClass4
     */
     class MyClass4 extends MyClass3{
         //this is pubic
@@ -332,7 +332,7 @@ $task = [
                           //protected...3
 
     /*
-        构造函数和析构涵数：
+        ### 构造函数和析构涵数：
     */
     class BaseClass {
         function __construct() {
