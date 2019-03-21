@@ -247,7 +247,7 @@ $task = [
                                   类的子类中		√	√
                                   所有的外部成员		           √
 
-  <?php 
+ <?php 
 
 /*
     Define MyClass1
@@ -258,17 +258,17 @@ $task = [
         private $private = "Private1...";
 
         function printHello(){
-            echo $this->public." fun1<br>";
-            echo $this->protected." fun2<br>";
-            echo $this->private." fun3<br>";
+            echo $this->public." fun1<br>";  //Public1... fun1
+            echo $this->protected." fun2<br>";  //Protected1... fun2
+            echo $this->private." fun3<br>"; //Private1... fun3
         }
     }
 
     $obj = new MyClass();
-    echo $obj->public." 1<br>";
+    echo $obj->public." 1<br>";  //Public1... 1
     //echo $obj->protected;
     //echo $obj->private;
-    echo $obj->printHello()." 2<br>";
+    echo $obj->printHello()."<br>";  //打印printHello();
 
 /*
     Define MyClass2
@@ -279,17 +279,17 @@ $task = [
 
         function printHello(){
 
-            echo $this->public." fun2.1<br>";
-            echo $this->protected." fun2.2<br>";
-            echo $this->private." fun2.3<br>";
+            echo $this->public." fun2.1<br>";  //Public1... fun2.1
+            echo $this->protected." fun2.2<br>";  //Protected1... fun2.2
+            echo $this->private." fun2.3<br>";  //fun2.3
         }
     }
 
     $obj2 = new MyClass2();
-    echo $obj2->public." class2.1<br>";
+    echo $obj2->public." class2.1<br>";  // Public1... class2.1
     //echo $obj2->private." class2.3<br>";
     //echo $obj2->protected;
-    $obj2->printHello();
+    $obj2->printHello();  //打印printHello();
     
 ?>
  
