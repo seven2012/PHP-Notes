@@ -243,8 +243,8 @@ $task = [
   3、访问类型（public, protected,private）:
   
                                                 private	protected	public
-                                  同一个类中	√	√	√
-                                  类的子类中		√	√
+                                  同一个类中	√	  √	√
+                                  类的子类中		  √	√
                                   所有的外部成员		           √
 
  <?php 
