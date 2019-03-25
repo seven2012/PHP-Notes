@@ -226,7 +226,7 @@ $task = [
       如：create table todos (id integer PRIMARY KEY AUTO_INCREMENT, description text NOT NULL, completed boolean NOT NULL);
  - describe todos;(显示表结构和内容)
  - drop table todos;(删除这个表)
- - nsert into todos (description, completed) values ('Go to shop', false);插入内容到表里；
+ - insert into todos (description, completed) values ('Go to shop', false);插入内容到表里；
         例：insert into todos (description, completed) values ('Learn PHP', false);
  - select * from todos;(展示表todos所有的内容)；
  
@@ -362,3 +362,57 @@ $task = [
 ?>
  
  ```
+
+- ## 使用 PDO 连接数据库:
+
+```
+try {
+            $pdo = new PDO('mysql:host=127.0.0.1;dbname=mytodos','root','')//通过pdo登录数据库mysql(最后空字符是各自登入自己的数据库的          password);
+     } catch(PDOException $e){
+            die ('Error:'.$e->getMessage());//登录出错的反馈信息
+     }
+
+        $statement = $pdo->prepare('select * from todos');//查看表信息的命令
+        $statement->execute(); //执行上一条命令，获取数据
+        $tasks = $statement->fetchAll(PDO::FETCH_OBJ); // 获取所有的记录，返回所有数据
+    
+```
+
+- ## PDO 函数封装与重构:
+
+```
+代码由上方一个知识点“使用 PDO 连接数据库”演变而来：
+新建一个写类task的php文件task.php:
+<?php
+
+class Task {
+    public $description;
+
+    public $completed;
+
+    public function isCompleted(){
+        return $this->completed;
+    }
+}
+
+index.php:
+        require 'task.php';
+        $pdo = connectToDb();
+        $tasks = getAllTasks($pdo);
+
+封装函数到functions.php
+functions.php:
+            function connectToDb(){
+                try {
+                    return new PDO('mysql:host=127.0.0.1;dbname=mytodos','root','qq262288693');//通过pdo登录数据库mysql(最后空字符是各自登入自己的数据库的password);
+                } catch(PDOException $e) {
+                    die ('Error:'.$e->getMessage());//登录出错的反馈信息
+                }
+            }
+
+            function getAllTasks($pdo){
+                $statement = $pdo->prepare('select * from todos');//查看表信息的命令
+                $statement->execute(); //执行上一条命令，获取数据
+                return $tasks = $statement->fetchAll(PDO::FETCH_CLASS,'Task'); // 指定一个类，Task
+            }
+```
