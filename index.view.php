@@ -15,15 +15,20 @@ header{
 }
 </style>
 <body>
-<header>
-    <h1>
-        <?php
-            // $name = $_GET['name'];
-            
-            echo $greeting;
-        ?>
-    </h1>
-</header>  
+    <ul>
+        <?php foreach($tasks as $task) : ?>
+            <?php if($task->isCompleted()) : ?>
+                <li>
+                    <del><?= $task->description ?></del>
+                </li>
+            <? else: ?>
+                <li>
+                    <?= $task->description ?>
+                </li>
+            <? endif; ?>
+        <?php endforeach; ?>
+        
+    </ul>
 
 </body>
 </html>
